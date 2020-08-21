@@ -1,13 +1,9 @@
-"""
-All the code for the Medium post:
-'Build your own ⚡playlist generator ⚡ with Spotify's API 🎧 (in Python!)' https://medium.com/p/ceb883938ce4
-"""
-
 import requests
 import json
 
 # SETTINGS 
 endpoint_url = "https://api.spotify.com/v1/recommendations?"
+#This isn't permanent probably need to reget token???
 token = "BQABbuPO2sDoJNs9IJ_HK5SCGQ7_tVhRk_1XYQMcpC5X7e9mPu6d3mcR4s3R2Rm-QkobINtOCcxCOlHgJAOq9Jx8v-LT-dPBp2uyvRq3YOAnPU9r-Wo3WkHQEvO-oUOE4H0BIGalrazeX3c3wuJKVXYYMgTlhl5srFq_wc5mCY8G4A"
 user_id = "rhythm_20"
 
@@ -15,13 +11,13 @@ user_id = "rhythm_20"
 limit=10
 market="US"
 seed_genres="indie"
-target_danceability=0.9
+danceability=0.6
 uris = [] 
-seed_artists = '1btWGBz4Uu1HozTwb2Lm8A'  # ID for Hippo Campus
-seed_tracks = '5VGEgFZfWBoEOGb3Vlo3rU'  # ID for Tangerine by Glass Animals
+seed_artists = '1btWGBz4Uu1HozTwb2Lm8A', '4yvcSjfu4PC0CYQyLy4wSq','0Ou0138wEd8XWebhc4j7O0'  # ID for Hippo Campus, Glass Animals and San Cisco
+#seed_tracks = '5VGEgFZfWBoEOGb3Vlo3rU'  # ID for Tangerine by Glass Animals
 
 # PERFORM THE QUERY
-query = f'{endpoint_url}limit={limit}&market={market}&seed_genres={seed_genres}&target_danceability={target_danceability}'
+query = f'{endpoint_url}limit={limit}&market={market}&seed_genres={seed_genres}&danceability={danceability}'
 query += f'&seed_artists={seed_artists}'
 query += f'&seed_tracks={seed_tracks}'
 
