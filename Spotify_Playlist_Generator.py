@@ -2,19 +2,20 @@ import requests
 import json
 
 endpoint_url = "https://api.spotify.com/v1/recommendations?"
-access_token = "BQCEAatFPNEnaM9g1Bxf5CVyDlUReEvYGAVAYX0FlVcq6FrXXazU4LQmmwBfA_Z-RnJSsqJbf0l0ml5Yu35IPh93TdPbIY6Np7FS6O0LC6LrgIXzol0zHneVvH-plUIEEnaK8uRbnKdV6m-R-vxU_9IzvlWNPIa9pb27d7yR9Zke6Q"
+access_token = "BQDO6aYMkQzi_iw3Jmc8ca3N9CTzSze1lBL3E6QLHWKa_EWUCOapJQG1t60FwzAxC9n8tuhKR_fvixvvqh4M0_RBDa0NTSJbdW1v3ilF2abOiG-EG1j6hQbnqWfR4FtBZb3mevXI4JWIKRPDf7wl2DLAZqwBYIgF8OyjnfnN9v2-iA"
 user_id = "rhythm_20"
 
 #FILTERS
 limit = 10 #no. of songs
 market = "AU" #country
 seed_genres = "indie"
-seed_artists = "1btWGBz4Uu1HozTwb2Lm8A"  # ID for Hippo Campus
-
+seed_artists = "1btWGBz4Uu1HozTwb2Lm8A,4yvcSjfu4PC0CYQyLy4wSq,0Ou0138wEd8XWebhc4j7O0"   # ID for Hippo Campus, Glass Animals, San Cisco
+popularity=40
+valence=0.8 
 uris = [] 
 
 #QUERY FOR SONGS
-query = f'{endpoint_url}limit={limit}&market={market}&seed_artists={seed_artists}'
+query = f'{endpoint_url}limit={limit}&market={market}&popularity={popularity}&valence={valence}&seed_artists={seed_artists}'
 
 response = requests.get(query,
                headers={"Content-Type":"application/json",
@@ -35,8 +36,8 @@ for i,j in enumerate(json_response['tracks']):
 endpoint_url = f"https://api.spotify.com/v1/users/{user_id}/playlists"
 
 request_body = json.dumps({
-          "name": "Indie bands like Hippo Campus and Glass Animals but using Python",
-          "description": "My first programmatic playlist, yooo!",
+          "name": "Happy??",
+          "description": "Magic",
           "public": False
         })
 response = requests.post(url = endpoint_url, data = request_body, headers={"Content-Type":"application/json", 
