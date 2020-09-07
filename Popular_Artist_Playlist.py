@@ -71,7 +71,7 @@ for i,j in enumerate(json_response['tracks']):
 #CREATE A NEW PLAYLIST
 endpoint_url = f"https://api.spotify.com/v1/users/{user_id}/playlists"
 request_body = json.dumps({
-          "name": "Happy??",
+          "name": "Popular Artists by python",
           "description": "Magic",
           "public": False
         })
